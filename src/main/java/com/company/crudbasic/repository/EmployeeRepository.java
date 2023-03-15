@@ -1,2 +1,7 @@
-package com.company.crudbasic.repository;public interface EmployeeRepository {
+package com.company.crudbasic.repository;
+
+import com.company.crudbasic.model.Employee;
+import org.springframework.data.repository.CrudRepository;
+
+public interface EmployeeRepository extends CrudRepository<Employee,Integer> {
 }

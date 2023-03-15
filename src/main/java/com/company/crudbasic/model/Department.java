@@ -1,4 +1,4 @@
-package com.company.crudbasic.controller;
+package com.company.crudbasic.model;
 
 import jakarta.persistence.*;
 
@@ -11,9 +11,16 @@ public class Department {
     @Column
     private String nameDepartment;
 
-    public Department(Integer id, String nameDepartment) {
+    @OneToOne(mappedBy = "department")
+    private User user;
+
+    public Department(Integer id, String nameDepartment, User user) {
         this.id = id;
         this.nameDepartment = nameDepartment;
+        this.user = user;
+    }
+
+    public Department() {
     }
 
     public Integer getId() {
@@ -32,6 +39,11 @@ public class Department {
         this.nameDepartment = nameDepartment;
     }
 
-    public Department() {
+    public User getUser() {
+        return user;
+    }
+
+    public void setUser(User user) {
+        this.user = user;
     }
 }
